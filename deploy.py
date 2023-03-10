@@ -1,0 +1,1 @@
+print("DEPLOY keyword found in commit message. Starting deployment process...")

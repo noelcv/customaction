@@ -5,9 +5,9 @@ set -e
 if echo "$*" | grep -i -q "DEPLOY";
 then
   # do something: start deployment process
-  echo "DEPLOY keyword found in commit message. Start deployment process"
+  python3 deploy.py
 
 else
   # do nothing and exit gracefully
-  echo "No further tasks required. Exiting gracefully..."
+  python3 exit.py
 fi
