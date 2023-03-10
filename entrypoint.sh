@@ -26,11 +26,11 @@ if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "DEP
 then
   # do something: start deployment process
   pwd
+  echo "Keyword found"
   python3 /usr/local/bin/deploy.py
-  echo "Keyword found. Deploying..."
 
 else
   # do nothing and exit gracefully
+  echo "Keyword not found"
   python3 /usr/local/bin/exit.py
-  echo "Keyword not found. Exiting..."
 fi

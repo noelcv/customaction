@@ -20,8 +20,48 @@ This is a regular bash script that can contain any commands you like. Technicall
 
 In our case, the first part of the script evaluates if a GITHUB_ENV_PATH is set to determine whether the job is running on GitHub and can access the workflow resources or if it running locally and shall use sample data instead.
 
-In the second part of the script, we look into the event payload, and check if the commit message contains a keyword passed as an argument to determine whether to trigger the deployment process.
+In the second part of the script, we look into the event payload, and check if the commit message contains the keyword "DEPLOY" passed as an argument to determine whether to trigger the deployment process.
 
+## Makefile
+
+The purpose of the Makefile is create different build targets, so that we don't have to run them each time while testing locally. As an example, instead of running:
+
+```bash
+docker run --rm keyword-release-action $(KEYWORD)
+
+docker build --tag keyword-release-action .
+
+./entrypoint.sh $(KEYWORD)
+```
+
+we can simply define equivalent targets in the Makefile, and then run only `make` and have all the specified targets running in sequence.
+
+
+
+
+## Example
+
+If a commit message contains deploy, the workflow will detect it and execute the `deploy.py` script.
+
+```bash
+git commit -m "TICKET-FOO-2023: fix center div - ready to deploy"
+```
+
+```md
+Keyword found. Deploying...
+Starting deployment process..."
+```
+
+Otherwise, the workflow would check that the keyword deploy is not present and execute the `exit.py` script.
+
+```bash
+git commit -m "TICKET-FOO-2023: update README file"
+```
+
+```md
+Keyword not found. Exiting...
+No further tasks required. Exiting gracefully...
+```
 
 ## testing the entrypoint script
 

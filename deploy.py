@@ -1,1 +1,1 @@
-print("DEPLOY keyword found in commit message. Starting deployment process...")
+print("Starting deployment process...")
