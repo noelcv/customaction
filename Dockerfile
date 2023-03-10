@@ -8,6 +8,8 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 COPY sample_push_event.json /sample_push_event.json
 COPY deploy.py /usr/local/bin/deploy.py
+RUN chmod +x /usr/local/bin/deploy.py
 COPY exit.py /usr/local/bin/exit.py
+RUN chmod +x /usr/local/bin/exit.py
 # set the arguments of the entrypoint
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
