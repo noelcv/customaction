@@ -1,7 +1,5 @@
 # Custom Action
 
-
-
 'chmod +x entrypoint.sh' to make it executable
 
 ## testing the entrypoint script
