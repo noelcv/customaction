@@ -1,0 +1,8 @@
+name: "Custom Deploy Action"
+description: "Deploys an application based on a keyword"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'box'
+  color: 'green'
