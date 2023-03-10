@@ -22,7 +22,7 @@ env
 jq . < $EVENT_PATH
 # extract the commit message from the EVENT PATH and grep the output for the keyword
 # "$*" is a placeholder for the keyword passed to the script as an argument - make it reusable
-if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "$*"; 
+if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "DEPLOY"; 
 then
   # do something: start deployment process
   pwd
