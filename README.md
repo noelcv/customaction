@@ -34,9 +34,21 @@ docker build --tag keyword-release-action .
 ./entrypoint.sh $(KEYWORD)
 ```
 
-we can simply define equivalent targets in the Makefile, and then run only `make` and have all the specified targets running in sequence.
+We can simply define equivalent targets in the Makefile, and then run only `make` and have all the specified targets running in sequence.
 
+## Metadata
 
+`Action.yml` contains the metadata for the custom data and needs to specify:
+
+- name
+- description
+- author
+- commands
+
+Optionally, it can also include information on:
+
+- inputs / output
+- branding elements (should you want to publish your Custom GitHub Action on the Marketplace)
 
 
 ## Example
