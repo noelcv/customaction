@@ -25,7 +25,7 @@ jq . < $EVENT_PATH
 if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "$*"; 
 then
   # do something: start deployment process
-  python3 deploy.py
+  python3 ./deploy.py
   echo "Keyword found. Deploying..."
 
 else
